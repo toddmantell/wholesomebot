@@ -1,0 +1,18 @@
+{
+  "name": "twitterbot",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest "
+  },
+  "author": "Todd Mantell",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "twit": "^2.2.9"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}
