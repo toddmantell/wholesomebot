@@ -12,6 +12,10 @@ function respondToTweet(tweet) {
 	if (tweet.text.includes('Send me a wholesome picture')) {
 		//send a cute picture or video
 	}
+
+	if (tweet.text.includes('#wholesome')) {
+		//send something wholesome
+	}
 	if (tweet.user.screen_name) {
 		wholesomeBot.post('statuses/update', {status: sweetTweets(tweet.user.screen_name)}, handleTwitterOperations);
 	}
