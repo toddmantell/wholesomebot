@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon wholesomeBot/realtimeResponses.js",
     "test": "jest --coverage",
     "test:watch": "jest --watch --coverage"
   },

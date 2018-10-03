@@ -10,22 +10,28 @@ stream.on('tweet', tweet => {respondToTweet(tweet)});
 stream.on('follow', tweet => {}); //respond to follows
 
 function respondToTweet(tweet) {
-	const {text, user: {screen_name}} = tweet;
+	const {text: tweetText, user: {screen_name}} = tweet;
 
 	console.log(screen_name, text);	
 	// if (text.includes('Send me a wholesome picture')) //send a cute picture or video
-
-	//this logic can be a separate function
-	const tweetIsNice = nicePhrases.find(phrase => text.toUpperCase().includes(phrase));
-	const tweetIsMean = meanPhrases.find(phrase = text.toUpperCase().includes(phrase));
-
-	if (tweetIsNice && screen_name) replyToUser(sweetTweets(screen_name));
 	
-	if (text.includes('#wholesome')) //send something wholesome
+	console.log('...sending tweet');	
+	if (tweetIsNice(tweetText) && screen_name) replyToUser(sweetTweets(screen_name));
 
-	if(text.toUpperCase().includes('Fuck you')) replyToUser(prepareKindResponse(screen_name))
+	if (tweetIsMean(tweetText) && screen_name) replyToUser(prepareKindResponse(screen_name));
+	
+	if (text.includes('#wholesome')); //send something wholesome
+
+	if (text.toUpperCase().includes('Fuck you')) replyToUser(prepareKindResponse(screen_name));
 }
 
-//what we really want to do is match the string to see if it includes anything from an array e.g:
+function tweetIsNice() {
+	return nicePhrases.find(phrase => text.toUpperCase().includes(phrase));
+}
+
+function tweetIsMean() {
+	return meanPhrases.find(phrase => text.toUpperCase().includes(phrase));
+}
+
 const meanPhrases = ['FUCK YOU', 'YOU SUCK', 'EAT SHIT', 'I HATE YOU', 'FUCK OFF'];
 const nicePhrases = ["YOU'RE AWESOME", 'YOU ARE AWESOME','I LOVE YOU', 'YOU ROCK', 'YOU MAKE ME HAPPY', 'YOU MAKE ME FEEL GOOD'];
